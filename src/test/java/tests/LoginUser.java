@@ -17,6 +17,7 @@ public class LoginUser extends BaseTest {
     @Test
     public void loginUser(){
 
+
         initTest("LoginUser");
 
         driver.get("http://apptest.go.ro:9999/login");
