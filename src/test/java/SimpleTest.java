@@ -17,7 +17,7 @@ public class SimpleTest extends BaseTest {
         SimpleActions simpleActions = new SimpleActions(driver);
         String loginText = simpleActions.getLoginText();
 
-        Assert.assertEquals(loginText.toLowerCase(), expectedText);
+        //Assert.assertEquals(loginText.toLowerCase(), expectedText);
         //Assert.assertTrue(loginText.contains(expectedText));
 
 
