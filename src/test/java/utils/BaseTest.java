@@ -33,6 +33,7 @@ public class BaseTest {
         if(driver != null){
             driver.quit();
         }
+        ReportManager.getInstance().flush();
     }
 
     @AfterMethod
