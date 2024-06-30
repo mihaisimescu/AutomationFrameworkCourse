@@ -15,15 +15,15 @@ public class Login {
         element.registerButton().click();
     }
 
-    public void setEmail(String email){
+    public void enterUserName(String email){
         element.userEmail().sendKeys(email);
     }
 
-    public void setPassword(String password){
+    public void enterPassword(String password){
         element.userPassword().sendKeys(password);
     }
 
-    public void submit(){
+    public void clickSubmit(){
         element.submitButton().click();
     }
 }
