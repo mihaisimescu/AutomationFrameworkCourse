@@ -7,16 +7,23 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-<!--    <test name="RegisterUser">-->
+<!--    <test name="Register User">-->
 <!--        <classes>-->
 <!--            <class name="tests.RegisterUser">-->
 <!--            </class>-->
 <!--        </classes>-->
 <!--    </test>-->
 
-    <test name="LoginUser">
+<!--    <test name="Login User">-->
+<!--        <classes>-->
+<!--            <class name="tests.LoginTrainer">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="Training Program">
         <classes>
-            <class name="tests.LoginTrainer">
+            <class name="tests.TrainingProgram">
             </class>
         </classes>
     </test>

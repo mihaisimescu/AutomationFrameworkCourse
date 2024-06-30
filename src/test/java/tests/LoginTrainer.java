@@ -20,7 +20,7 @@ public class LoginTrainer extends BaseTest {
     @Test
     public void loginTrainer(){
 
-        initTest("LoginTrainer");
+        initTest("Login Trainer");
 
         login = new Login(driver);
 

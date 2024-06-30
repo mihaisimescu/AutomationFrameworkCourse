@@ -16,21 +16,14 @@ public class RegisterUser extends BaseTest {
     @Test
     public void registerUser(){
 
-        initTest("RegisterUser");
+        initTest("Register User");
 
         login = new Login(driver);
         register = new Register(driver);
 
         login.clickRegisterButton();
 
-        register.setFirstname("Mihai");
-        register.setLastname("Sim");
-        register.setPhoneNumber("00003");
-        register.setEmail("mihai@t.com");
-        register.setPassword("11111");
-        register.setCity("Brasov");
-        register.setTrainer();
-        register.submit();
+        register.registerUser(true);
 
         Assert.assertEquals(register.getSignUpText(), "Sign Up");
     }
