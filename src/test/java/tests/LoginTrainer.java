@@ -2,13 +2,13 @@ package tests;
 
 import actions.Login;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Dashboard;
 import utils.BaseTest;
+import utils.ConfigLoader;
 
 import java.time.Duration;
 
@@ -24,8 +24,13 @@ public class LoginTrainer extends BaseTest {
 
         login = new Login(driver);
 
-        login.enterUserName("mihai@w.com");
-        login.enterPassword("11111");
+        ConfigLoader configLoader = new ConfigLoader("src/test/resources/properties/userData.properties");
+
+        String email = configLoader.getProperty("email");
+        String password = configLoader.getProperty("password");
+
+        login.enterUserName(email);
+        login.enterPassword(password);
         login.clickSubmit();
 
         dashboard = new Dashboard(driver);

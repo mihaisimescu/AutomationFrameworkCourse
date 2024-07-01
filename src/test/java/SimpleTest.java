@@ -1,9 +1,6 @@
 import actions.SimpleActions;
-import com.aventstack.extentreports.ExtentTest;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.BaseTest;
-import utils.ReportManager;
 
 public class SimpleTest extends BaseTest {
 

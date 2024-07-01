@@ -1,14 +1,23 @@
 package actions;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.ConfigLoader;
 import webelements.RegisterElements;
+
+import java.time.Duration;
 
 public class Register {
 
     private RegisterElements elements = null;
+    private Wait<WebElement> wait;
+    private ConfigLoader configLoader;
 
     public Register(WebDriver driver){
         elements = new RegisterElements(driver);
+        //wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public String getSignUpText(){
@@ -52,12 +61,21 @@ public class Register {
     }
 
     public void registerUser(boolean isTrainer){
-        setFirstname("Mihai");
-        setLastname("Sim");
-        setPhoneNumber("00003");
-        setEmail("mihai@ww.com");
-        setPassword("11111");
-        setCity("Brasov");
+
+        configLoader = new ConfigLoader("src/test/resources/properties/userData.properties");
+        String firstName = configLoader.getProperty("firstName");
+        String lastname = configLoader.getProperty("lastname");
+        String phoneNumber = configLoader.getProperty("phoneNumber");
+        String email = configLoader.getProperty("email");
+        String password = configLoader.getProperty("password");
+        String city = configLoader.getProperty("city");
+
+        setFirstname(firstName);
+        setLastname(lastname);
+        setPhoneNumber(phoneNumber);
+        setEmail(email);
+        setPassword(password);
+        setCity(city);
 
         if(isTrainer) {
             setTrainer();
