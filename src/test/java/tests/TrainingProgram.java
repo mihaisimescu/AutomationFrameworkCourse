@@ -2,15 +2,11 @@ package tests;
 
 import actions.Login;
 import actions.Register;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Dashboard;
+import pages.Training;
 import utils.BaseTest;
-
-import java.time.Duration;
+import utils.ConfigLoader;
 
 public class TrainingProgram extends BaseTest {
 
@@ -18,6 +14,7 @@ public class TrainingProgram extends BaseTest {
     private Dashboard dashboard = null;
     private Register register = null;
     private RegisterUser registerUser = null;
+    private Training training;
 
     @Test
     public void openTrainingTab(){
@@ -28,6 +25,7 @@ public class TrainingProgram extends BaseTest {
         dashboard = new Dashboard(driver);
         register = new Register(driver);
         registerUser = new RegisterUser();
+        training = new Training(driver);
 
         login();
 
@@ -35,14 +33,24 @@ public class TrainingProgram extends BaseTest {
     }
 
     private void login() {
-        login.enterUserName("mihai@ww.com");
-        login.enterPassword("11111");
+
+        ConfigLoader configLoader = new ConfigLoader("src/test/resources/properties/userData.properties");
+
+        String email = configLoader.getProperty("email");
+        String password = configLoader.getProperty("password");
+
+        login.enterUserName(email);
+        login.enterPassword(password);
         login.clickSubmit();
 
-        if(login.errorForbiddenAccessText().equals("Access forbidden!")){
-            login.clickRegisterButton();
-            register.registerUser(true);
-        }
+        dashboard.clickTrainingButton();
+
+        training.clickGenerateProgramButton();
+
+//        if(login.errorForbiddenAccessText().equals("Access forbidden!")){
+//            login.clickRegisterButton();
+//            register.registerUser(true);
+//        }
 
     }
 }
