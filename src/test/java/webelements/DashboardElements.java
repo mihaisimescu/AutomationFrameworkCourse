@@ -12,8 +12,8 @@ public class DashboardElements {
         this.driver = driver;
     }
 
-    public WebElement getUserName(){
-        return  driver.findElement(By.cssSelector("#userNameDisplay"));
+    public WebElement userNameDisplay() {
+        return driver.findElement(By.cssSelector("#userNameDisplay"));
     }
 
     public WebElement trainingButton(){

@@ -1,4 +1,4 @@
-package pages;
+package actions;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
@@ -17,13 +17,13 @@ public class Dashboard {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public String getUsernameText(){
-        wait.until(d->elements.getUserName().isDisplayed());
-        return elements.getUserName().getText();
+    public String getUserEmailFromDashBoard(){
+        wait.until(d -> elements.userNameDisplay().isDisplayed());
+        return  elements.userNameDisplay().getText();
     }
 
     public void clickTrainingButton(){
-        wait.until(d->elements.getUserName().isDisplayed());
+        wait.until(d->elements.userNameDisplay().isDisplayed());
         elements.trainingButton().click();
     }
 

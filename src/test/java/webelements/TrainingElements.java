@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class TrainingElements {
 
@@ -19,4 +20,13 @@ public class TrainingElements {
     public WebElement generateProgram(){
         return driver.findElement(By.cssSelector(".generate-program"));
     }
+
+    public WebElement weekDay(int dayNumber){
+        return driver.findElement(By.cssSelector("3cdk-drop-list-" + dayNumber));
+    }
+
+    public List<WebElement> trainingPrograms(){
+        return driver.findElements(By.cssSelector(".cdk-drag example-box"));
+    }
+
 }

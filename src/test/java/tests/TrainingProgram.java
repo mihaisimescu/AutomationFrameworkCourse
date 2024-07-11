@@ -2,9 +2,10 @@ package tests;
 
 import actions.Login;
 import actions.Register;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.Dashboard;
-import pages.Training;
+import actions.Dashboard;
+import actions.Training;
 import utils.BaseTest;
 import utils.ConfigLoader;
 
@@ -39,18 +40,26 @@ public class TrainingProgram extends BaseTest {
         String email = configLoader.getProperty("email");
         String password = configLoader.getProperty("password");
 
-        login.enterUserName(email);
-        login.enterPassword(password);
-        login.clickSubmit();
+        loginActions(email, password);
+
 
         dashboard.clickTrainingButton();
 
         training.clickGenerateProgramButton();
 
-//        if(login.errorForbiddenAccessText().equals("Access forbidden!")){
-//            login.clickRegisterButton();
-//            register.registerUser(true);
-//        }
+        if(login.errorForbiddenAccessText().equals("Access forbidden!")){
+            login.clickRegisterButton();
+            register.registerUser(true);
+            loginActions(email, password);
+        }
 
+        Assert.assertTrue(dashboard.getUserEmailFromDashBoard().equalsIgnoreCase(email));
+
+    }
+
+    private void loginActions(String email, String password) {
+        login.enterUserName(email);
+        login.enterPassword(password);
+        login.clickSubmit();
     }
 }

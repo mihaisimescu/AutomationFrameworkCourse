@@ -1,9 +1,10 @@
-package pages;
+package actions;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import webelements.DashboardElements;
 import webelements.TrainingElements;
 
 import java.time.Duration;
@@ -12,14 +13,26 @@ public class Training {
 
     private TrainingElements elements = null;
     private Wait<WebDriver> wait;
+    private Actions builder;
 
     public Training(WebDriver driver){
         elements = new TrainingElements(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        builder = new Actions(driver);
     }
 
     public void clickGenerateProgramButton(){
         wait.until(d->elements.generateProgram().isDisplayed());
         elements.generateProgram().click();
+    }
+
+    public void dragAndDropTrainingProgram(int dayNumber) {
+
+        Action dragAndDrop = builder.clickAndHold(someElement)
+                .moveToElement(elements.weekDay(dayNumber))
+                .release(elements.weekDay(dayNumber))
+                .build();
+
+        dragAndDrop.perform();
     }
 }

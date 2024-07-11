@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.Dashboard;
+import actions.Dashboard;
 import utils.BaseTest;
 import utils.ConfigLoader;
 
