@@ -1,6 +1,7 @@
 package actions;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Wait;
@@ -26,13 +27,23 @@ public class Training {
         elements.generateProgram().click();
     }
 
-    public void dragAndDropTrainingProgram(int dayNumber) {
+    public void dragAndDropTrainingProgram(String dayNumber, String trainingProgram) {
 
-        Action dragAndDrop = builder.clickAndHold(someElement)
+        Action dragAndDrop = builder.clickAndHold(getTrainingProgram(trainingProgram))
                 .moveToElement(elements.weekDay(dayNumber))
                 .release(elements.weekDay(dayNumber))
                 .build();
 
         dragAndDrop.perform();
+    }
+
+    private WebElement getTrainingProgram(String trainingProgram){
+
+        WebElement element2 = null;
+        for (WebElement element : elements.trainingPrograms()){
+            if (element.getText().equalsIgnoreCase(trainingProgram))
+                element2 = element;
+        }
+        return element2;
     }
 }

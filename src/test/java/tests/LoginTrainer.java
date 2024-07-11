@@ -41,7 +41,7 @@ public class LoginTrainer extends BaseTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='navigation__link userName']")));
 
-        Assert.assertTrue(dashboard.getUsernameText().equalsIgnoreCase("mihai@w.com"));
+        Assert.assertTrue(dashboard.getUserEmailFromDashBoard().equalsIgnoreCase("mihai@w.com"));
     }
 
 }
