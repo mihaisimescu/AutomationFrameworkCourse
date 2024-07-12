@@ -21,7 +21,7 @@ public class TrainingElements {
         return driver.findElement(By.cssSelector(".generate-program"));
     }
 
-    public WebElement weekDay(int dayNumber){
+    public WebElement weekDay(String dayNumber){
         return driver.findElement(By.cssSelector("3cdk-drop-list-" + dayNumber));
     }
 
@@ -29,4 +29,7 @@ public class TrainingElements {
         return driver.findElements(By.cssSelector(".cdk-drag example-box"));
     }
 
+    public List<WebElement> trainingProgramsOnWeekday(String dayNumber){
+        return driver.findElements(By.cssSelector("#cdk-drop-list-"+ dayNumber + ".cdk-drag"));
+    }
 }

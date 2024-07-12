@@ -28,8 +28,17 @@ public class TrainingProgram extends BaseTest {
         registerUser = new RegisterUser();
         training = new Training(driver);
 
+        ConfigLoader configLoader = new ConfigLoader("src/test/resources/properties/userData.properties");
+
         login();
 
+        dashboard.clickTrainingButton();
+
+        training.clickGenerateProgramButton();
+
+        training.dragAndDropTrainingProgram(configLoader.getProperty("weekDay"), configLoader.getProperty("trainingProgram"));
+
+        Assert.assertTrue(training.trainingProgramOnWeekday(configLoader.getProperty("weekDay"), "legs").equalsIgnoreCase("legs"));
 
     }
 
@@ -41,7 +50,6 @@ public class TrainingProgram extends BaseTest {
         String password = configLoader.getProperty("password");
 
         loginActions(email, password);
-
 
         dashboard.clickTrainingButton();
 
