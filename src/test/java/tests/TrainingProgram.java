@@ -38,6 +38,7 @@ public class TrainingProgram extends BaseTest {
 
         training.dragAndDropTrainingProgram(configLoader.getProperty("weekDay"), configLoader.getProperty("trainingProgram"));
 
+        Assert.assertTrue(training.trainingProgramOnWeekday(configLoader.getProperty("weekDay"), "legs").equalsIgnoreCase("legs"));
 
     }
 
@@ -49,7 +50,6 @@ public class TrainingProgram extends BaseTest {
         String password = configLoader.getProperty("password");
 
         loginActions(email, password);
-
 
         dashboard.clickTrainingButton();
 

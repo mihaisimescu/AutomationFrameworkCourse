@@ -38,12 +38,18 @@ public class Training {
     }
 
     private WebElement getTrainingProgram(String trainingProgram){
-
-        WebElement element2 = null;
-        for (WebElement element : elements.trainingPrograms()){
+     for (WebElement element : elements.trainingPrograms()){
             if (element.getText().equalsIgnoreCase(trainingProgram))
-                element2 = element;
+                return element;
         }
-        return element2;
+        return null;
+    }
+
+    public String  trainingProgramOnWeekday(String dayNumber, String trainingProgram){
+        for (WebElement element : elements.trainingProgramsOnWeekday(dayNumber)){
+            if (element.getText().equalsIgnoreCase(trainingProgram))
+                return element.getText();
+        }
+        return null;
     }
 }
