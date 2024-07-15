@@ -3,7 +3,6 @@ package tests;
 import actions.Dashboard;
 import actions.Login;
 import actions.Register;
-import actions.Training;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.BaseTest;
