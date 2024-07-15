@@ -28,7 +28,13 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-    <test name="Cucumber Calendar Test">
+    <test name="Calentar  Program">
+        <classes>
+            <class name="tests.CalendarTest">
+             </class>
+        </classes>
+    </test>
+<test name="Cucumber Calendar Test">
         <classes>
             <class name="runner.TestRunner">
             </class>
